@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "学术生词采集器",
+  "version": "1.0.0",
+  "description": "纯自用学术阅读生词采集插件，自动保存生词并生成中文释义",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "contextMenus",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://api.siliconflow.cn/*",
+    "file://*/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_page": "options.html",
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "viewer.html",
+        "pdf-viewer.js",
+        "pdfjs/pdf.min.js",
+        "pdfjs/pdf.worker.min.js",
+        "dict/cedict_ts.u8"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

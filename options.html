@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学术生词采集器 - 设置</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            width: 400px;
+            background: #f5f5f5;
+        }
+        .header {
+            background: #4285f4;
+            color: white;
+            padding: 12px 16px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 4px 4px 0 0;
+        }
+        .content {
+            background: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-top: none;
+            min-height: 300px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+        .form-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .form-textarea {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            min-height: 100px;
+            resize: vertical;
+        }
+        .test-btn {
+            background: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .test-result {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+        .test-success {
+            background: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #c8e6c9;
+        }
+        .test-error {
+            background: #ffebee;
+            color: #c62828;
+            border: 1px solid #ffcdd2;
+        }
+        .save-btn {
+            background: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .status-message {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        学术生词采集器 - 设置
+    </div>
+    
+    <div class="content">
+        <div class="form-group">
+            <label class="form-label">API Key (硅基流动)</label>
+            <input type="password" class="form-input" id="apiKey" placeholder="请输入您的硅基流动API Key">
+        </div>
+        
+        <div class="form-group">
+            <label class="form-label">模型名称 (可选)</label>
+            <input type="text" class="form-input" id="modelName" placeholder="例如: deepseek-ai/DeepSeek-R1" value="deepseek-ai/DeepSeek-R1">
+        </div>
+        
+        <div class="form-group">
+            <label class="form-label">API Base URL (可选)</label>
+            <input type="text" class="form-input" id="apiBaseUrl" placeholder="例如: https://api.siliconflow.cn/v1/chat/completions" value="https://api.siliconflow.cn/v1/chat/completions">
+        </div>
+        
+        <div class="form-group">
+            <label class="form-label">Prompt 模板 (可选)</label>
+            <textarea class="form-textarea" id="promptTemplate" placeholder="自定义AI提示词模板，可使用以下变量: {word}, {context}, {title}"></textarea>
+        </div>
+        
+        <button class="test-btn" id="testApiBtn">测试API连接</button>
+        <div id="testResult" class="test-result" style="display: none;"></div>
+        
+        <button class="save-btn" id="saveBtn">保存设置</button>
+        <div class="status-message" id="statusMessage"></div>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+</html>
